@@ -5,14 +5,14 @@
  * @param bait - кол-во байт
  * @return расчитанное значение
  */
-double Megabait(double bait);
+double Megabait(const double bait);
 
 /**
  * @brief Расчитывавет кол-во гигабайт по заданной формуле
  * @param bait - кол-во байт
  * @return расчитанное значение
  */
-double Gigabait(double bait);
+double Gigabait(const double bait);
 
 /**
  * @brief Точка входа в программу
@@ -28,12 +28,13 @@ int main(void)
     return 0;
 }
 
-double Megabait(double bait)
+double Megabait(const double bait)
 {
     return bait / 1024 / 1024;
 }
 
-double Gigabait(double bait)
+double Gigabait(const double bait)
 {
     return bait / 1024 / 1024 / 1024;
+
 }
