@@ -7,7 +7,7 @@
  * @param R3 - значение параметра R3
  * @return рассчитанное значение
  */
-double soprotivlenie(double R1, double R2, double R3);
+double soprotivlenie(const double R1, const double R2, const double R3);
 
 /**
  * @brief Точка входа в программу
@@ -28,7 +28,8 @@ int main(void)
     return 0;
 }
 
-double soprotivlenie(double R1, double R2, double R3)
+double soprotivlenie(const double R1, const double R2, const double R3)
 {
     return R1 + R2 + R3;
+
 }
