@@ -14,7 +14,7 @@ double getValue();
  * @param A - значение переменной A(константа)
  * @return - рассчитанное значение
  */
-double getF(double x, const double A);
+double getF(const double x, const double A);
 
 /**
  * @brief - Точка входа в программу
@@ -40,7 +40,7 @@ double getValue()
     return value;
 }
 
-double getF(double x, const double A)
+double getF(const double x, const double A)
 {
     if (x <= 1)
     {
@@ -50,4 +50,5 @@ double getF(double x, const double A)
     {
         return A*log10(x)+sqrt(abs(x));
     }
+
 }
