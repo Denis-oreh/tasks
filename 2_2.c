@@ -46,9 +46,6 @@ double getF(const double x, const double A)
     {
         return 2*A*cos(x)+3*(x*x);
     }
-    else
-    {
-        return A*log10(x)+sqrt(abs(x));
-    }
-
+    return A*log10(x)+sqrt(abs(x));
 }
+
