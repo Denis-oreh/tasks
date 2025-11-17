@@ -44,7 +44,7 @@ int minarr(int* arr, const size_t size);
  * @param zamena - минимальный по модулю положительный элемент массива
  * @return Изменёный массив
  */
-void zamena_arr(int* arr, const size_t size, int minimal);
+void zamena_arr(int* arr, const size_t size, const int minimal);
 
 /**
  * @brief Функция для копирования массива
@@ -65,7 +65,8 @@ void newArray(int* arr, int* new_arr, const size_t size, const int new_size);
 void lastArray(int* arr, int* last_arr, const size_t size);
 
 /**
-* @brief Выбор формулы
+* @brief RANDOM - рандомное заполнение массива
+* @brief MANUAL - заполнение массива вручную с клавиатуры
 */
 enum { RANDOM, MANUAL };
 
@@ -188,7 +189,7 @@ int minarr(int* arr, const size_t size)
 	return cnt;
 }
 
-void zamena_arr(int* arr, const size_t size, int minimal)
+void zamena_arr(int* arr, const size_t size, const int minimal)
 {
 	int zamena = minimal;
 	for (size_t i = 0; i < size; i += 1)
@@ -211,7 +212,7 @@ int* copyArray(const int* arr, const size_t size)
 	return copyArr;
 }
 
-void newArray(int* arr, int* new_arr, const size_t size, int new_size)
+void newArray(int* arr, int* new_arr, const size_t size, const int new_size)
 {
 	new_size -= 1;
 	for (size_t i = 0; i < size; i += 1)
