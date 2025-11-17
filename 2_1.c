@@ -26,7 +26,8 @@ void chekValue(const double value);
 double getSquare(const double side1,const double side2,const double side3);
 
 /**
-* @brief Выбор формулы
+* @brief VOLUME - объём паралепипеда
+* @brief SQUARE - площадь поверхности паралепипеда
 */
 enum {VOLUME, SQUARE};
 
@@ -88,4 +89,5 @@ double getVolume(const double side1,const double side2,const double side3)
 double getSquare(const double side1,const double side2,const double side3)
 {
     return 2*(side1*side2 + side2*side3 + side1*side3);
+
 }
