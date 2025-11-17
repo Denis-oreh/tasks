@@ -53,7 +53,8 @@ void printArray(int* arr, const size_t size);
 void Treti(int* arr, const size_t size);
 
 /**
-* @brief Выбор формулы
+* @brief RANDOM - рандомное заполнение массива
+* @brief MANUAL - заполнение массива вручную с клавиатуры
 */
 enum { RANDOM, MANUAL };
 
@@ -187,4 +188,5 @@ void Treti(int* arr, const size_t size)
         }
         printf("%d ", arr[i]);
     }
+
 }
