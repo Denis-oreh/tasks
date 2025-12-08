@@ -11,7 +11,7 @@ int getValue();
  * @brief Ввод размера массива
  * @return размер массива
  */
-size_t getSize(char* message);
+size_t getSize(const char* message);
 
 /**
  * @brief Создание массива
@@ -134,7 +134,7 @@ int getValue()
     return value;
 }
 
-size_t getSize(char* message)
+size_t getSize(const char* message)
 {
     printf("%s", message);
     int value = getValue();
@@ -193,7 +193,7 @@ void fillRandom(int** arr, const size_t rows, const size_t columns)
     int start = getValue();
     printf("Введите конец диапазона случайных чисел: ");
     int end = getValue();
-    if (start < end)
+    if (start <= end)
     {
         for (size_t i = 0; i < rows; i++)
         {
@@ -243,24 +243,13 @@ void minColumns(int** copy_arr, const size_t rows, const size_t columns)
 
 int** copyArray(int** arr, const size_t rows, const size_t columns)
 {
-    int** copyArr = malloc(rows * sizeof(int*));
-    if (copyArr == NULL)
-    {
-        printf("Error\n");
-        exit(1);
-    }
+    int** copyArr = getArray(rows, columns);
     for (size_t i = 0; i < rows; i++)
     {
-        copyArr[i] = malloc(columns * sizeof(int));
-        if (copyArr[i] == NULL)
-        {
-            printf("Error\n");
-            exit(1);
-        }
         for (size_t j = 0; j < columns; j++)
-        {
-            copyArr[i][j] = arr[i][j];
-        }
+            {
+                copyArr[i][j] = arr[i][j];
+            }
     }
     return copyArr;
 }
@@ -305,51 +294,29 @@ size_t cntMaxArray(int** arr, const size_t rows, const size_t columns, const int
 
 int** lastArray(int** copy_arr, const size_t rows, const size_t columns, const int maxArr, const size_t cntMax)
 {
-    int** last_arr = malloc((rows + cntMax) * sizeof(int*));
-    if (last_arr == NULL)
+    int** last_arr = getArray(rows+cntMax, columns);
+    int new_index = 0;
+    for (size_t j = 0; j < columns; j++)
     {
-        printf("Error\n");
-        exit(1);
+        last_arr[new_index][j] = copy_arr[new_index][j];
     }
-    size_t new_index = 0;
-    for (size_t i = 0; i < rows; i++)
+    new_index += 1;
+    int Flag = 0;
+    for (size_t j = 0; j < columns; j++)
     {
-        last_arr[new_index] = malloc(columns * sizeof(int));
-        if (last_arr[new_index] == NULL)
+        if (copy_arr[new_index][j] == maxArr)
         {
-            printf("Error\n");
-            exit(1);
+            Flag = 1;
+            break;
         }
-
+    }
+    if (Flag == 1)
+    {
         for (size_t j = 0; j < columns; j++)
         {
-            last_arr[new_index][j] = copy_arr[i][j];
+             last_arr[new_index][j] = copy_arr[rows - 1][j];
         }
         new_index += 1;
-        int Flag = 0;
-        for (size_t j = 0; j < columns; j++)
-        {
-            if (copy_arr[i][j] == maxArr)
-            {
-                Flag = 1;
-                break;
-            }
-        }
-        if (Flag == 1)
-        {
-            last_arr[new_index] = malloc(columns * sizeof(int));
-            if (last_arr[new_index] == NULL)
-            {
-                printf("Error\n");
-                exit(1);
-            }
-            for (size_t j = 0; j < columns; j++)
-            {
-                last_arr[new_index][j] = copy_arr[rows - 1][j];
-            }
-            new_index += 1;
-        }
     }
-
     return last_arr;
 }
