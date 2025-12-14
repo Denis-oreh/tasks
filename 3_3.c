@@ -95,7 +95,8 @@ void checkMinMax(const double min, const double max)
     }
 }
 
-void checkStep(const double step) {
+void checkStep(const double step)
+{
     if (step <= 0)
     {
         printf("Error\n");
@@ -132,4 +133,5 @@ double getSumE(const double e, const double x)
         result += current;
     }
     return result;
+
 }
